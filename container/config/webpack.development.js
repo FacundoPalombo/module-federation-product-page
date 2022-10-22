@@ -1,3 +1,4 @@
+const packageJson = require("../package.json");
 const { merge } = require("webpack-merge");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -23,6 +24,7 @@ const devConfig = {
       remotes: {
         marketing: "marketing@http://localhost:8081/remoteEntry.js",
       },
+      shared: [...Object.keys(packageJson.dependencies)],
     }),
   ],
 };
